@@ -21,8 +21,8 @@ $create_table = "CREATE TABLE tb_pesanan (
     nama VARCHAR(30) NOT NULL,
     pesanan VARCHAR(100) NOT NULL,
     email VARCHAR(30) NOT NULL,
-    foto_ktp VARCHAR(255) NOT NULL,
-    foto_selfie VARCHAR(255) NOT NULL,
+    nik_ktp BIGINT(255) NOT NULL,
+    pembayaran_melalui VARCHAR(255) NOT NULL,
     notelp BIGINT(15) NOT NULL
     )";
 $result = mysqli_query($conn,$create_table);

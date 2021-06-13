@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -84,6 +85,10 @@
                     session_start();
 
                     $hargatotal = 0;
+                    if(!$_SESSION['basket'])
+                    {
+                      header("location:Restaurant.html");
+                    }
 
                     foreach ($_SESSION['basket'] as $key => $val)
                     {
@@ -117,29 +122,32 @@
                                 <input type='text' placeholder='Input Email' name='email' id='email' required>
                             </div>
                             <div>
-                                <label for='myfile'>KTP Photo :</label>
+                                <label for='myfile'>NIK KTP :</label>
                                 <br>
-                                <input type='file' id='foto_ktp' name='foto_ktp'>
+                                <input type='tel' id='nik_ktp' name='nik_ktp' placeholder='Input NIK KTP' required>
                             </div>
                             <div>
                                 <br>
-                                <label for='myfile'>Selfie Photo With KTP :</label>
-                                <br>
-                                <input type='file' id='foto_selfie' name='foto_selfie'>
-                            </div>
-                            <div>
-                                <br>
-                                <label>Phone number :</label>
+                                <label>Phone number :</label><br>
                                 <input type='tel' placeholder='Input Phone Number' name='notelp' id='notelp' required>
                             </div>
                             <div>
-                                <p>Total Price : $hargatotal</p><input type='hidden' name='hargatotal' value='$hargatotal'>
+                                <br>
+                                <label for='myfile'>pembayaran melalui :</label>
+                                <br>
+                                <input type='radio' id='pembayaran_melalui' name='pembayaran_melalui' value='Transfer_Bank'>Transfer Bank<br>
+                                <input type='radio' id='pembayaran_melalui' name='pembayaran_melalui' value='OVO'>OVO<br>
+                                <input type='radio' id='pembayaran_melalui' name='pembayaran_melalui' value='Gopay'>Gopay<br>
+                                <input type='radio' id='pembayaran_melalui' name='pembayaran_melalui' value='Dana'>Dana<br><br>
+                            </div>
+                            <div>
+                                <h3>Total Price : $hargatotal</p><input type='hidden' name='hargatotal' value='$hargatotal'>
                             </div>
                             <div>
                                 <p><input type='checkbox' name='reading' value='reading' tabindex='1'/>  By Checking This CheckBox, You Are Agreed to Send Payment Proof lately 30 Minutes After You Pressed 'BUY' Button And Send It To 081330229959. Or Else, Your Order Will Be Canceled</p>
                             </div>
-                            <button type='submit' class='buybutton'>BUY</button>
-                            </a>";         
+                            <button type='submit' class='buybutton'>BUY</button> </a> </form><a href='cancel.php'><button class='buybutton' style='background-color: red;'>CANCEL</button></a>
+                            ";         
                 ?>
             </form>            
 		  </div>
